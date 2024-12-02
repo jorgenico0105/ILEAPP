@@ -1,0 +1,6 @@
+<div *ngFor="let field of objectKeys(Exceldata[0])">
+  <label *ngIf="field!=='Codigo'">
+    <input type="checkbox" (change)="toggleFieldSelection(field);emitSelected()" />
+    {{field}}
+  </label>
+</div>

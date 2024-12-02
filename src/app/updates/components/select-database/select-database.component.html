@@ -1,0 +1,7 @@
+<label for="options">Selecciona la bas datos:</label>
+<!-- select-database.component.html -->
+<select id="options" [(ngModel)]="selecteddatabase" (change)="emitData()">
+  <option *ngFor="let option of options" [value]="option.value">
+    {{ option.label }}
+  </option>
+</select>

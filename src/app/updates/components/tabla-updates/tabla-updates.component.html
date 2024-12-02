@@ -1,0 +1,30 @@
+<div
+  class="table-responsive"
+  style="max-width: 70%;"
+  *ngIf="ExcelData.length > 0"
+>
+  <table class="table align-middle">
+    <thead class="thead-dark">
+      <tr>
+        <th
+          *ngFor="let key of objectKeys(ExcelData[0])"
+          scope="col"
+          [ngClass]="selectedFields.includes(key) ? 'table-info' : ''"
+        >
+          {{ key }}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of ExcelData">
+        <td
+          *ngFor="let value of objectValues(item); let i = index"
+          scope="col"
+          [ngClass]="selectedFields.includes(objectKeys(ExcelData[0])[i]) ? 'table-info' : ''"
+        >
+          {{ value }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

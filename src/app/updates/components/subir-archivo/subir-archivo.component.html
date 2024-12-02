@@ -1,0 +1,12 @@
+<app-select-database (selectData)="dataManager($event)"></app-select-database>
+<label>
+  Archivo Excel
+  <input *ngIf="database" type="file" name="none" accept=".xls,.xlsx" (change)="ReadExcel($event)" >
+</label>
+<div *ngIf="Exceldata.length">
+  <h3>Selecciona los campos que deseas actualizar:</h3>
+  <app-select-fileds (selecteFields)="fieldsManager($event)" [Exceldata]="Exceldata"></app-select-fileds>
+  <button (click)="sendSelectedData()"  [disabled]="selectedFields.length===0">Actualizar Seleccionados</button>
+</div>
+<h1>{{this.message}}</h1>
+<app-tabla-updates [ExcelData]="Exceldata" [selectedFields]="selectedFields"></app-tabla-updates>
